@@ -4594,7 +4594,8 @@ const ProductDetail = () => {
 
   const [zoomPos, setZoomPos] = useState({ x: 0, y: 0, visible: false });
   const imgRef = useRef(null);
-  const zoom = 2.5;
+  const isMobile = window.innerWidth <= 768;
+  const zoom = isMobile ? 1.5 : 2.5;
 
   if (!produto) {
     return <h1>Produto não encontrado</h1>;
@@ -4634,13 +4635,17 @@ const ProductDetail = () => {
         <div className="product-info">
           <h1>{produto.title}</h1>
           <div className="avaliacao">
-            {[...Array(5)].map((_, i) => (
-              <FaStar key={i} color="#FFD700" />
-            ))}
-                  <Link to="/review">
-              <span className="avaliacoes">(3 avaliações)</span>
-            </Link>
-            <span className="estoque">Em estoque</span>
+            <div className="estrela">
+              {[...Array(5)].map((_, i) => (
+                <FaStar key={i} color="#FFD700" />
+              ))}
+            </div>
+            <div className="align-av">
+              <Link to="/review">
+                <span className="avaliacoes">(3 avaliações)</span>
+              </Link>
+              <span className="estoque">Em estoque</span>
+            </div>
           </div>
 
           <div className="quantidade-container">
@@ -4650,9 +4655,11 @@ const ProductDetail = () => {
           </div>
 
           <h2>{produto.price}</h2>
-          <button className="adicionar-carrinho" onClick={() => addToCart(produto, quantidade)}>
-            Adicionar ao carrinho
-          </button>
+          <Link to="/carrinho">
+            <button className="adicionar-carrinho" onClick={() => addToCart(produto, quantidade)}>
+              Adicionar ao carrinho
+            </button>
+          </Link>
 
         </div>
 

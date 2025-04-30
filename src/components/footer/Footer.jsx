@@ -4,7 +4,7 @@ import "./Footer.css";
 
 const Footer = () => {
     return (
-        <footer style={{ backgroundColor: "#F7DBA7", height: "440px" }}>
+        <footer style={{ backgroundColor: "#F7DBA7" }}>
             <div id="footer" className="footer-container">
                 <div className="align-retp">
                     <div className="footer-rectangle">
@@ -18,7 +18,6 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Mapa Google corrigido */}
                     <div className="map-container">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.559424972781!2d-46.72040232517223!3d-23.655944165072835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce51a36a2b5357%3A0x6375faa71efa063e!2sUniversidade%20Cruzeiro%20do%20Sul%20-%20Campus%20Santo%20Amaro!5e0!3m2!1spt-BR!2sbr!4v1725216481621!5m2!1spt-BR!2sbr"
@@ -36,10 +35,10 @@ const Footer = () => {
 
                 <div className="contact-info">
                     <div className="contact-item">
-                        <p>📞 Tel: (11) 1234-5678</p>
+                        <p>Tel: (11) 1234-5678</p>
                     </div>
                     <div className="contact-item">
-                        <p>✉️ Email: contato@mimospet.com</p>
+                        <p>Email: contato@mimospet.com</p>
                     </div>
                 </div>
 
@@ -58,18 +57,7 @@ const Footer = () => {
                         <p>Início</p>
                     </Link>
                     <Link to="/categorias"><p>Categorias</p></Link>
-                    <Link
-                        to="/"
-                        onClick={(e) => {
-                            e.preventDefault();
-                            const section = document.getElementById("sobre-nos");
-                            if (section) {
-                                section.scrollIntoView({ behavior: "smooth" });
-                            }
-                        }}
-                    >
-                        <p>Sobre Nós</p>
-                    </Link>
+                    <Link to="/sobre-nos"><p>Sobre Nós</p></Link>
                     <Link
                         to="/"
                         onClick={(e) => {
